@@ -1,0 +1,36 @@
+<body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.8.1/prop-types.js"></script>
+    <script type="text/babel">
+let state=`You Clicked Me`
+let count={Newcount:0}
+    function App()
+    {
+        return (<div>
+        <button onClick={(event)=>setState({Newcount:count.Newcount+1})}>Click Me</button>
+        <p>
+            {state}
+            </p>
+        </div>)
+    }
+      //  ReactDOM.render(element,document.getElementById('root'))
+    
+  function setState(count)
+  {
+    console.log(`--------------------${count.Newcount}-----`)
+    let toggle=(count.Newcount%2!=0)?'Yes':'No'
+    state=state+toggle
+    Object.assign(count.Newcount,count.Newcount+1)
+    renderApp()
+  }
+  function renderApp()
+  {
+    ReactDOM.render(<App/>,document.getElementById('root'))
+  }
+  renderApp()
+       
+    </script>
+</body>
