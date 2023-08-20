@@ -5,12 +5,13 @@
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script type="text/babel">
 
-        const Message=(props)=><div className="message">{props.msg}</div>
+        const Adder=(props)=><div className="message">{parseInt(props.number)+parseInt(props.number)}</div>
         // Creating custom components using React for working
-      
+        let value=10
         const element=(<div className="container">
-            <Message msg="Hello World"/>
-            <Message msg="Bye World"/>
+            
+            <Adder number={value} />
+            </div>
         )
 
         ReactDOM.render(element,document.getElementById('root'))
