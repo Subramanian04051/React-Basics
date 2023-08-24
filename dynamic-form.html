@@ -1,0 +1,34 @@
+<body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.8.1/prop-types.js"></script>
+    <script type="text/babel">
+
+   function UsernameForm()
+   {
+    const [username,setUsername]=React.useState('')
+    const error=(username==username.toLowerCase())?null:'Username must be lower case'
+    function handleSubmit(event)
+    {
+        event.preventDefault()
+        alert(`You entered :${username}`)
+    }
+    function handleChange(event)
+    {
+        setUsername(event.target.value)
+    }
+    return (<form onSubmit={handleSubmit}>
+        <div>
+            <label htmlFor='usernameInput'></label>
+            <input id='usernameInput' type="text" onChange={handleChange}/>
+            <div style={{color:'red'}}>{error}</div>
+            <button disabled={Boolean(error)} type="submit">Submit </button>
+            </div>
+            </form>)
+   }
+   ReactDOM.render(<UsernameForm />, document.getElementById('root'))
+       
+    </script>
+</body>
